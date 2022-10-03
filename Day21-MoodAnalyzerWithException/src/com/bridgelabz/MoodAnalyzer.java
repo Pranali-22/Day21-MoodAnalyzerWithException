@@ -5,7 +5,7 @@ package com.bridgelabz;
 
 /**
  * @author Dell
- *  Given a Message, ability to analyse and respond Happy or Sad Mood - Create MoodAnalyser Object - Call analyseMood function with message
+ *  Handle Exception if User Provides Invalid Mood
  */
  
 public class MoodAnalyzer {
@@ -16,9 +16,23 @@ public class MoodAnalyzer {
 	public MoodAnalyzer(String message) {
 		this.message = message;
 	}
+	
+
+	private void validateMessage(String message) throws ExceptionForMoodAnalyser{
+		if(message.equals(null)) {
+			throw new ExceptionForMoodAnalyser("Please enter valid message");
+		}
+
+	}
 
 	//Function to check mood
-	public String analyseMood() {		
+	public String analyseMood() {	
+		try {
+			validateMessage(message);
+		}
+		catch(ExceptionForMoodAnalyser e){
+			System.out.println(e.result+" "+e);
+		}
 		if(this.message.contains("SAD")){
 			return "SAD";
 		}
@@ -26,5 +40,6 @@ public class MoodAnalyzer {
 			return "HAPPY";
 		}
 	}
+
 	
 }

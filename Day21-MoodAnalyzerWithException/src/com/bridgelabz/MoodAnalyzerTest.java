@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Dell
- * Given a Message, ability to analyse and respond Happy or Sad Mood - Create MoodAnalyser Object - Call analyseMood function with message
+ * Handle Exception if User Provides Invalid Mood
+ * 
  */
 class MoodAnalyzerTest {
 
@@ -19,7 +20,7 @@ class MoodAnalyzerTest {
 	//analyseMood method should just return SAD
 	@Test
 	void check_if_analyzeMood_returns_sad() {
-		String message = "I am in SAD mood";
+		String message=null;
 		MoodAnalyzer moodAnalyzer = new MoodAnalyzer(message);		
 		Assert.assertEquals("SAD",moodAnalyzer.analyseMood());
 	}
