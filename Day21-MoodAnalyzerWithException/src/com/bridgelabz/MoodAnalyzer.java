@@ -5,7 +5,7 @@ package com.bridgelabz;
 
 /**
  * @author Dell
- *  Handle Exception if User Provides Invalid Mood
+ *  Handle Exception if User Provides null Mood
  */
  
 public class MoodAnalyzer {
@@ -19,10 +19,9 @@ public class MoodAnalyzer {
 	
 
 	private void validateMessage(String message) throws ExceptionForMoodAnalyser{
-		if(message.equals(null)) {
-			throw new ExceptionForMoodAnalyser("Please enter valid message");
+		if(message == null) {
+			throw new ExceptionForMoodAnalyser("HAPPY");			
 		}
-
 	}
 
 	//Function to check mood
@@ -33,7 +32,7 @@ public class MoodAnalyzer {
 		catch(ExceptionForMoodAnalyser e){
 			System.out.println(e.result+" "+e);
 		}
-		if(this.message.contains("SAD")){
+		if(this.message != null  && message.contains("SAD")){
 			return "SAD";
 		}
 		else {
